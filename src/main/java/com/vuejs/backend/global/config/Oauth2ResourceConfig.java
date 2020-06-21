@@ -21,15 +21,14 @@ public class Oauth2ResourceConfig extends ResourceServerConfigurerAdapter {
 
         http.
                 csrf().disable()
-
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .antMatchers(HttpMethod.GET, "/todos").permitAll()
-                .antMatchers(HttpMethod.GET, "/todos/*").permitAll()
-                .antMatchers(HttpMethod.PUT, "/todos/*").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/todos/*").permitAll()
-                .antMatchers(HttpMethod.POST, "/todos").permitAll()
-                .antMatchers(HttpMethod.POST, "/todos/upload").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/todos").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/todos/*").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/todos/*").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/todos/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/todos").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/todos/upload").permitAll()
+                .antMatchers(HttpMethod.POST, "/oauth/token").permitAll()
                 .anyRequest().access("#oauth2.hasScope('USER')");
     }
 }

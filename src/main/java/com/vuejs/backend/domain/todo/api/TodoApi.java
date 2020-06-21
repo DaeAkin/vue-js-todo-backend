@@ -23,7 +23,7 @@ import java.util.Optional;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/todos")
+@RequestMapping("/api/todos")
 @CrossOrigin(origins = "*")
 public class TodoApi {
 
@@ -59,6 +59,7 @@ public class TodoApi {
 
     @GetMapping
     public ResponseEntity<List<Todo>> getAllTodos(@RequestParam("skip") int skip, @RequestParam("limit") int limit) throws NotFoundException {
+        log.info("getAllTodos");
         List<Todo> todoList = new ArrayList<>();
         Pageable pageable = PageRequest.of(skip, limit);
         Optional<List<Todo>> todo = todoService.findAllTodos(pageable);
