@@ -22,7 +22,7 @@ public class PassionfactoryApplication {
 		SpringApplication.run(PassionfactoryApplication.class, args);
 
 	}
-	
+
 
 
 }
